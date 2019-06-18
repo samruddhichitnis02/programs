@@ -27,7 +27,7 @@ for i in (x):
 print('The Palindrome numbers which are prime are-', y)
 print()
 
-# Prime Numbers which are Anagrams
+
 
 print('The anagram numbers are-', z)
 
