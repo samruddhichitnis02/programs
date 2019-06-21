@@ -33,10 +33,12 @@ print('The anagram numbers are-', z)
 
 
 m=','.join(map(str,x)) #to convert list to string
-n=str.split(m)
+n=m.split(',')
 for i in range(len(n)):
    for j in range(i+1,len(n)):
-       if(sorted(n[i]==n[j])):
+       if(sorted(n[i])==sorted(n[j])):
            z.append(n[i])
            z.append(n[j])
 print(z)
+
+
