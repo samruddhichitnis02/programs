@@ -18,18 +18,18 @@ def b_i(a,n):
                 a[j] = t
     print(a)
 
-def b_s(a):
-    def binary_search(a,low,high,y):
-        if(high>=low):
-            mid=low+((high-low)//2)
-            if(a[mid]==y):
-                return mid
-            elif (a[mid]>y):
-                return binary_serach(a,low,mid-1,y)
-            else:
-                return binary_serach(a,mid+1,high,y)
+
+def binary_search(a,low,high,y):
+    if(high>=low):
+        mid=low+((high-low)//2)
+        if(a[mid]==y):
+            return mid
+        elif (a[mid]>y):
+            return binary_search(a,low,mid-1,y)
         else:
-            return -1
+            return binary_search(a,mid+1,high,y)
+    else:
+        return -1
 
 
 
