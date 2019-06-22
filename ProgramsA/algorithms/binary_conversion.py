@@ -1,8 +1,10 @@
-n=int(input('Enter an Integer number only-'))
-def to_bin(n):
-    x=bin(n)
-    print(x)
-    r =((x & 0x0F) << 4 | (x & 0xF0) >> 4)
-    print(r)
+def binary(n):
 
-to_bin(n)
+    if n > 1:
+        binary(n // 2)
+    print(n % 2, end='')
+
+
+# Take decimal number from user
+dec = int(input("Enter an integer: "))
+binary(dec)

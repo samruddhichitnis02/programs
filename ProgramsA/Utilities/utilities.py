@@ -184,7 +184,7 @@ def ana(a,b):
         print('The strings are not anagrams')
 
 def prime_no(n):
-    for i in range(0, n):
+    for i in range(2, n):
         k = 0
         for j in range(2, i // 2 + 1):
             if (i % j == 0):

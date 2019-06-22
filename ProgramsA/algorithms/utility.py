@@ -36,15 +36,14 @@ def binary_search(a,low,high,y):
 
 
 
-def bi_s(x,n):
+def bi_s(x):
     x.sort()
     m = ''.join(x)
     print(m)
 
 
 
-
-def i_s(x,m):
+def i_s(x):
     for i in range(1,len(x)):
         key=x[i]
         j=i-1

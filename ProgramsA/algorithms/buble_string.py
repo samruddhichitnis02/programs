@@ -7,7 +7,7 @@ x = []
 n = input('Enter a String-')
 print(n)
 x = list(n)
-algorithms.utility.bi_s(x,n)
+algorithms.utility.bi_s(x)
 st = input('Press Enter to stop the stopwatch')
 print('Stopwatch stopped!')
 end = time.time()

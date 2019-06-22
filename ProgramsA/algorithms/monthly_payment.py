@@ -7,8 +7,6 @@ class Payment():
 		payment = (P*r)/(1-(1+r)**(-n))
 		return payment
 
-
-
 P=int(sys.argv[1])
 Y=int(sys.argv[2])
 R=int(sys.argv[3])

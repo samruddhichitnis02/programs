@@ -4,7 +4,7 @@ z = []
 
 # Prime Numbers in range0-1000
 n = 1000
-for i in range(0, n):
+for i in range(2, n):
     k = 0
     for j in range(2, i // 2 + 1):
         if (i % j == 0):
