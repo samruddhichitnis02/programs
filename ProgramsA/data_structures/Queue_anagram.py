@@ -6,11 +6,11 @@ class node:
         self.next=None
 
 
-class linked_list:
+class Queue:
     def __init__(self):
         self.head=None
 
-    def push(self,newnode):
+    def enqueue(self,newnode):
         fa=node(newnode)
         if self.head is None:
             self.head=fa
@@ -21,25 +21,12 @@ class linked_list:
                 p=p.next
             p.next=fa
 
-    def create_list(self,y):
+    def create_queue(self,y):
       for i in y:
-          self.push(i)
-      self.print_list()
+          self.enqueue(i)
+      self.dequeue()
 
-
-    def reverse_list(self,y):
-        temp=0
-        q=self.head
-        for i in range(len(y)):
-            while q is not None:
-                temp=q.data
-                q.data=q.next.data
-                q.next.data=temp
-            q=q.next
-
-
-
-    def print_list(self):
+    def dequeue(self):
         z=self.head
         while z is not None:
             print(z.data,' ',end=' ')
@@ -65,7 +52,5 @@ for i in range(len(a)):
         if(sorted(a[i])==sorted(a[j])):
             y.append(a[i])
             y.append(a[j])
-#print(y)
-l=linked_list()
-l.create_list(y)
-l.reverse_list(y)
+q=Queue()
+q.create_queue(y)
