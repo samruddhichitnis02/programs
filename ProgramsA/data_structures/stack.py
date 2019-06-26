@@ -1,58 +1,51 @@
-class Stack:
-    def __init__(self):
-        self.items = []
+import sys
 
-    def is_empty(self):
-        return self.items == []
+sys.path.append('../')
+import Utilities
+from Utilities import data
 
-    def push(self, data):
-        self.items.append(data)
-
-    def pop(self):
-        self.items.pop()
-
-
-s = Stack()
+s = data.Stack()
 expression = input('Enter the expression: ')
-balanced=False
+balanced = False
 for c in expression:
-    if (c == '(' or c=='{' or c=='['):
+    if (c == '(' or c == '{' or c == '['):
         s.push(c)
     elif (c == ')'):
         if s.is_empty():
-            balanced=False
+            balanced = False
             break
         else:
             for i in s.items:
-                if (i=='('):
+                if (i == '('):
                     continue
             s.pop()
-
-    elif (c == '}') :
+    elif (c == '}'):
         if s.is_empty():
-            balanced=False
+            balanced = False
             break
         else:
             for i in s.items:
-                if (i=='{'):
+                if (i == '{'):
                     continue
             s.pop()
-
     elif (c == ']'):
         if s.is_empty():
-            balanced=False
+            balanced = False
             break
-
         else:
             for i in s.items:
-                if (i=='['):
+                if (i == '['):
                     continue
             s.pop()
+
+
+
+
 else:
     if s.is_empty():
-        balanced=True
+        balanced = True
     else:
-        balanced=False
+        balanced = False
 if balanced:
     print('The expresssion has balanced parentheses')
 else:
