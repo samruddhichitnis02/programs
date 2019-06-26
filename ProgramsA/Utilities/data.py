@@ -65,6 +65,8 @@ class Link_list:
                 p = p.next
             p.next = fa
 
+
+
     def print_list(self):
         z = self.head
         while z is not None:
@@ -170,8 +172,8 @@ class Anagram:
                 p = p.next
             p.next = fa
 
-    def create_stack(self, y):
-        for i in y:
+    def create_stack(self, q):
+        for i in q:
             self.push(i)
         self.print_stack()
 
@@ -231,8 +233,8 @@ class Queue_anagram:
                 p=p.next
             p.next=fa
 
-    def create_queue(self,y):
-      for i in y:
+    def create_queue(self,x):
+      for i in x:
           self.enqueue(i)
       self.dequeue()
 
@@ -242,5 +244,17 @@ class Queue_anagram:
             print(z.data,' ',end=' ')
             z=z.next
         print()
+
+#prime 2D array
+def prime_2D():
+    a = []
+    for i in range(0, 19):
+        a.append([])
+    k = 100
+    for i in range(0, 20):
+        if (i % 2 == 0):
+            a[i].append(k)
+            k = k + 100
+    return a
 
 

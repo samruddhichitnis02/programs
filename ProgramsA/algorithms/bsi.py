@@ -1,5 +1,5 @@
 from array import *
-import algorithms.utility
+import Utilities.algo_utility
 import time
 
 sa = input('Press Enter to start the stopwatch')
@@ -17,7 +17,7 @@ for i in range(0, n):
             a[i] = a[j]
             a[j] = t
 y = int(input('Enter the element you want to search-'))
-z=algorithms.utility.b_s(a,0,len(a)-1,y)
+z=Utilities.algo_utility.b_s(a,0,len(a)-1,y)
 if(z!=-1):
     print('The element you want is at position-',z)
 else:

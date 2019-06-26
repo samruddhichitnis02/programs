@@ -1,4 +1,4 @@
-import algorithms.utility
+import Utilities.algo_utility
 import time
 a = []
 sa = input('Press Enter to start the stopwatch')
@@ -11,7 +11,7 @@ a.sort()
 m = ''.join(a)
 print(m)
 y = input('Enter the element you want to search-')
-z = z=algorithms.utility.binary_search(a,0,len(a)-1,y)
+z = z=Utilities.algo_utility.binary_search(a,0,len(a)-1,y)
 if (z != -1):
     print('The element you want is at position-', z)
 else:

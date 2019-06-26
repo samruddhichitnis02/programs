@@ -1,3 +1,5 @@
-import Utilities.utilities
+import Utilities.algo_utility
 n=1000
-Utilities.utilities.prime_no(n)
+a=[ ]
+a=Utilities.algo_utility.prime_no(n)
+print(a)

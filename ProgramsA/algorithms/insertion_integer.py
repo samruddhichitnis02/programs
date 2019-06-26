@@ -1,5 +1,5 @@
 from array import *
-import algorithms.utility
+import Utilities.algo_utility
 import time
 sa = input('Press Enter to start the stopwatch')
 print('Stopwatch started!')
@@ -9,7 +9,7 @@ n = int(input('Enter the number of elements-'))
 for i in range(n):
     x = int(input('Enter the elements-'))
     a.append(x)
-algorithms.utility.i_i(a,n)
+Utilities.algo_utility.i_i(a,n)
 st = input('Press Enter to stop the stopwatch')
 print('Stopwatch stopped!')
 end = time.time()

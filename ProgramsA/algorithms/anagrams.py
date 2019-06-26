@@ -1,4 +1,4 @@
-import Utilities.utilities
+import Utilities.algo_utility
 a=input('Enter the  first string-')
 b=input('Enter the second string-')
-Utilities.utilities.ana(a,b)
+Utilities.algo_utility.ana(a,b)
