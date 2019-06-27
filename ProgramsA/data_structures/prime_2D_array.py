@@ -13,26 +13,29 @@ for i in k:
     elif(i>=100 and i<200):
         z[3].append(i)
 
-    elif (i >= 300 and i < 400):
+    elif (i >= 200 and i < 300):
         z[5].append(i)
 
-    elif (i >= 400 and i < 500):
+    elif (i >= 300 and i < 400):
         z[7].append(i)
 
-    elif (i >= 500 and i < 600):
+    elif (i >= 400 and i < 500):
         z[9].append(i)
 
-    elif (i >= 600 and i < 700):
+    elif (i >= 500 and i < 600):
         z[11].append(i)
 
-    elif (i >= 700 and i < 800):
+    elif (i >= 600 and i < 700):
         z[13].append(i)
 
-    elif (i >= 800 and i < 900):
+    elif (i >= 700 and i < 800):
         z[15].append(i)
 
-    elif (i >= 900 and i <= 1000):
+    elif (i >= 800 and i < 900):
         z[17].append(i)
+
+    elif (i >= 900 and i <= 1000):
+        z[19].append(i)
 
 print(z)
 

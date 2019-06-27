@@ -248,7 +248,7 @@ class Queue_anagram:
 #prime 2D array
 def prime_2D():
     a = []
-    for i in range(0, 19):
+    for i in range(0, 20):
         a.append([])
     k = 100
     for i in range(0, 20):
@@ -257,4 +257,9 @@ def prime_2D():
             k = k + 100
     return a
 
-
+#Anagram 2D array
+def anagram_2D():
+    a=[]
+    for i in range(0,2):
+        a.append([])
+    return a
