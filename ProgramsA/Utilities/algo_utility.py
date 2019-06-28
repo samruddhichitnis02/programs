@@ -229,3 +229,9 @@ def Root(c):
     while (abs(t - c / t) > epsilon * t):
         t = (c / t + t) / 2
     return t
+
+
+def tobinary(n):
+    if(n>1):
+        tobinary(n//2)
+    print(n%2,end='')
