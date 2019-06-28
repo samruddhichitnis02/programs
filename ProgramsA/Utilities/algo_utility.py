@@ -74,11 +74,33 @@ def b_s(a, low, high, y):
     else:
         return -1
 
-def ana(a,b):
-    if (sorted(a) == sorted(b)):
-        print('The  strings are anagrams')
+def ana(a,b,n,m):
+    for i in range(len(n)):
+        a.append(n[i])
+    for i in range(len(m)):
+        b.append(m[i])
+    for i in range(len(n)):
+        for j in range(i + 1, len(n)):
+            if (a[i] > a[j]):
+                t = a[i]
+                a[i] = a[j]
+                a[j] = t
+    for i in range(len(m)):
+        for j in range(i + 1, len(m)):
+            if (b[i] > b[j]):
+                t = b[i]
+                b[i] = b[j]
+                b[j] = t
+
+    c = 0
+    if (len(a) == len(b)):
+        for i in a:
+            if i in b:
+                c = c + 1
+    if (c == len(a)):
+        print('Anagrams')
     else:
-        print('The strings are not anagrams')
+        print('Not Anagrams')
 
 def prime_no(n):
     x=[ ]
