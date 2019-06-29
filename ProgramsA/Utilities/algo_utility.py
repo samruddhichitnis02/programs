@@ -232,6 +232,12 @@ def Root(c):
 
 
 def tobinary(n):
-    if(n>1):
-        tobinary(n//2)
-    print(n%2,end='')
+   x=[256,128,64,32,16,8,4,2,1]
+   y=[0,0,0,0,0,0,0,0,0,0,0]
+   for i in range(n):
+       if(n>=x[i]):
+           n=n-x[i]
+           y[i].append(1)
+       else:
+           y[i].append(0)
+    print(y)
