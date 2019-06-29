@@ -49,6 +49,9 @@ print('1st slot is-')
 s.print_list()
 s.delete_list(l1)
 
+
+
+
 for i in l2:
     s.insert(i)
 print('2nd slot is-')
@@ -102,3 +105,6 @@ for i in l10:
 print('10th slot is-')
 s.print_list()
 s.delete_list(l10)
+j=s.search(x)
+
+print(j)

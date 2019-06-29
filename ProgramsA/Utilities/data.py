@@ -503,5 +503,21 @@ class Linked_slot:
         for i in range(len(l)):
             self.head=None
 
-    def search(self):
+    def search(self,y):
+        q=[ ]
         a=int(input('Enter the element to search-'))
+        if a in y:
+            y.remove(a)
+        elif a not in y:
+            y.append(a)
+
+        for i in range(0, len(y)):
+            y[i] = str(y[i])
+            q.append(y[i])
+
+        with open('numbers.txt', 'w') as f: #enter the new data to the file
+            for i in range(len(q)):
+                st = ''.join(q[i])
+                stri = ' '
+                f.write(st + stri)
+        return y
