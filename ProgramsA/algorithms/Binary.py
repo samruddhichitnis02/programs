@@ -1,4 +1,6 @@
 import Utilities.algo_utility
-
-n=int(input('Enter a number-'))
-q=Utilities.algo_utility.tobinary(n)
+try:
+    n=int(input('Enter a number-'))
+    q=Utilities.algo_utility.tobinary(n)
+except:
+    print('Input a Number only!')
