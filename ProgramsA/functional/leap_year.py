@@ -1,3 +1,6 @@
 import Utilities.utilities
-year=input('Enter the year with four digits only-')
-Utilities.utilities.leap(year)
+try:
+    year=input('Enter the year with four digits only-')
+    Utilities.utilities.leap(year)
+except:
+    print('Enter a four digit number')
