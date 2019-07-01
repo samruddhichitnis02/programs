@@ -11,18 +11,18 @@ class Linked_list:
         self.head = None
 
     def insert(self, newNode): #Linking of all the nodes created
-        fa = node(newNode)
-        if self.head is None:
+        fa = node(newNode)#call the class node to put the data so that a node is formed
+        if self.head is None:#if the head is empty then put the 1st element
             self.head = fa
-        else:
+        else: #if the head has the 1st element than put the remaining data in the next nodes
             p = self.head
             while p.next is not None:
-                p = p.next
+                p = p.next #traversing the linked list
             p.next = fa
 
     def print_list(self): #printing the nodes
         z = self.head
-        while z is not None:
+        while z is not None:#traversing the linked list to print the data
             print(z.data, ' ', end='')
             z = z.next
         print()
@@ -33,30 +33,30 @@ class Linked_list:
         elif d in x:
             x.remove(d)
         for i in range(len(x)):
-            self.head = None
-        for i in range(len(x)):
+            self.head = None #removes the 1st node from the linked list
+        for i in range(len(x)):#now insert the new entries if any or remove the old entries if any
             self.insert(x[i])
         self.print_list()
         # print(x)
-        with open('abc.txt', 'w') as f:
+        with open('abc.txt', 'w') as f: #write the changes made back to the file
             for i in (x):
-                str = ''.join(i)
-                stri = ' '
+                str = ''.join(i) #list to string
+                stri = ' ' #add some spaces between the strings
                 f.write(str + stri)
 
 
 # Ordered List
 class Node:
-    def __init__(self, data):
+    def __init__(self, data):#function to create the nodes
         self.data = data
         self.next = None
 
 
 class Link_list:
-    def __init__(self):
+    def __init__(self):#Function to initialise the head element
         self.head = None
 
-    def insert(self, newNode):
+    def insert(self, newNode):#Function to insert data in to the node
         fa = Node(newNode)
         if self.head is None:
             self.head = fa
@@ -68,7 +68,7 @@ class Link_list:
 
 
 
-    def print_list(self):
+    def print_list(self):#Function to print the node
         z = self.head
         while z is not None:
             print(z.data, ' ', end='')
@@ -153,7 +153,7 @@ class Deque:
 
 
 # Stack Anagrams
-class node_angram:
+class node_angram: #create node to implement stack using linked list
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -209,12 +209,12 @@ class Queue:
             x.append(i)
 
 
-    def dequeue(self,x): #to delete teh users when their transaction is completed
+    def dequeue(self,x): #to delete the users when their transaction is completed
         if(len(x)>0):
             x.pop()
 
 #Queue Anagram
-class node_anagram:
+class node_anagram: #create the node to implement Queue using Linked list
     def __init__(self,data):
         self.data=data
         self.next=None
@@ -517,7 +517,7 @@ class Linked_slot:
 
         with open('numbers.txt', 'w') as f: #enter the new data to the file
             for i in range(len(q)):
-                st = ''.join(q[i])
+                st = ''.join(q[i])#convert list to string
                 stri = ' '
                 f.write(st + stri)
         return y
