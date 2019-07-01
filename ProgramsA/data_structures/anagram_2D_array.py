@@ -10,9 +10,6 @@ k= Utilities.algo_utility.anagrams(n)
 b=Utilities.algo_utility.prime_no(n)
 
 
-
-
-
 for i in range(0, len(k)):
     k[i] = int(k[i])
     a.append(k[i])
@@ -23,8 +20,4 @@ for i in a:
 for i in b:
     if(i not in a):
         z[1].append(i)
-
-
-#print(b)
 print(z)
-
