@@ -7,7 +7,7 @@ class Stock_Portfolio:
             print("The value of price per stock of",z, "is",a) #Prints the share price of per stock of each company
         print()
 
-    def stock_calculation(self):
+    def stock_calculation(self,data):
         count=0
         for i in range(4):
             p=data["Stocks"][i]["Stock Name"]
@@ -24,6 +24,6 @@ try:
     with open('stock.json', 'r') as f:
         data = json.load(f)
     S.stock(data)
-    S.stock_calculation()
+    S.stock_calculation(data)
 except:
     print('File Not Found!')
