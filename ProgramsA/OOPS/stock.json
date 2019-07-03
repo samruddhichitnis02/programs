@@ -1,0 +1,24 @@
+{
+  "Stocks": [
+    {
+      "Stock Name": "Facebook",
+      "Number of Shares": 30,
+      "Share Price per stock": 50
+    },
+    {
+      "Stock Name": "Google",
+      "Number of Shares": 45,
+      "Share Price per stock": 100
+    },
+    {
+      "Stock Name": "TCS",
+      "Number of Shares": 25,
+      "Share Price per stock": 70
+    },
+    {
+      "Stock Name": "Microsoft",
+      "Number of Shares": 15,
+      "Share Price per stock": 65
+    }
+  ]
+}
