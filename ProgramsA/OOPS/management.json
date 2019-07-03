@@ -1,0 +1,19 @@
+{
+  "Inventorydata":[
+    {
+      "Name": "Rice",
+      "Weight": 50,
+      "Price per Kg": 20
+    },
+    {
+      "Name": "Pulses",
+      "Weight": 55,
+      "Price per Kg": 25
+    },
+    {
+      "Name": "Wheat",
+      "Weight": 35,
+      "Price per Kg": 15
+    }
+  ]
+}
