@@ -1,1 +1,14 @@
-{"Customer": [{"name": "abc", "bal": 4150, "stock": [{"name": "google", "share": 5}, {"name": "tcs", "share": 5}]}, {"name": "xyz", "bal": 3400, "stock": [{"name": "google", "share": 6}]}]}
+{
+  "Customer": [
+    {
+      "name": "xyz",
+      "bal": 3860,
+      "stock": [
+        {
+          "name": "tcs",
+          "share": 2
+        }
+      ]
+    }
+  ]
+}

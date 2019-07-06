@@ -1,94 +1,285 @@
 import json
+import os
 
-def Customer():
-    name=input("Enter you name to register-")
-    bal=int(input("Enter the amount you have-"))
-    x = {"Customer": []}
-    st='y'
-    while(st=='y'):
-        user=int(input('Enter the number of users-'))
-        for i in range(user):
-            choice=int(input('Enter 1 to buy 2 to sell 3 to print the report-'))
-            if(choice==1):
-                y={ }
-                y['name']=name
-                n=int(input('Enter the number of Stock companies-'))
-                y['Stock_Name']=[ ]
-                y['Number of Shares']=[ ]
-                for i in range(n):
-                    z=input('Enter the Company Name-')
-                    y['Stock_Name'].append(z)
-                    p=int(input('Enter the no of shares-'))
-                    y['Number of Shares'].append(p)
-                    with open('commercial.json', 'r') as fp:
-                        data = json.load(fp)
-                        if(z=="tcs"):
-                            a=data["Stocks"][2]["Share Price per stock"]
-                            d=p*a
-                            bal=bal-d
-                            print(bal)
+def customer():
+    with open('customer.json', 'a') as f:
+        if (os.stat('customer.json').st_size > 0):
+            user = int(input('Enter the number of users-'))
+            for i in range(user):
+                y = {}
+                name = input("Enter your name to register -")
+                bal = int(input('Enter the amount with you-'))
+                y['name'] = name
+                y['bal'] = bal
+                stock = []
+                y['stock'] = stock
+                st = 'y'
+                while (st == 'y'):
+                    choice = int(input('Enter 1 to buy or 2 to sell-'))
+                    if (choice == 1):
+                        n1 = int(input('Enter the number of stock companies -'))
+                        for i in range(n1):
+                            z = {}
+                            name1 = input('Enter the stock name within these companies Facebook,Google,tcs,microsoft-')
+                            share = int(input('Enter the number of shares-'))
+                            z['name'] = name1
+                            z['share'] = share
+                            stock.append(z)
 
-                        elif (z == "google"):
-                            a = data["Stocks"][1]["Share Price per stock"]
-                            d = p * a
-                            bal = bal - d
-                            print(bal)
+                            with open('commercial.json', 'r') as fp:
+                                data = json.load(fp)
+                                if (name1 == 'facebook'):
+                                    a = data["Stocks"][0]["Share Price per stock"]
+                                    d = share * a
+                                    bal = bal - d
+                                    y['bal'] = bal
+                                    bt = data["Stocks"][0]["Total Price"]
+                                    bt = bt - d
+                                    data["Stocks"][0]["Total Price"] = bt
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    print('Your balance is-', y['bal'])
 
-                        elif (z == "facebook"):
-                            a = data["Stocks"][0]["Share Price per stock"]
-                            d = p * a
-                            bal = bal - d
-                            print(bal)
+                                elif (name1 == 'google'):
+                                    a = data["Stocks"][1]["Share Price per stock"]
+                                    d = share * a
+                                    bal = bal - d
+                                    y['bal'] = bal
+                                    bt = data["Stocks"][1]["Total Price"]
+                                    bt = bt - d
+                                    data["Stocks"][1]["Total Price"] = bt
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    print('Your balance is-', y['bal'])
 
-                        elif (z == "microsoft"):
-                            a = data["Stocks"][3]["Share Price per stock"]
-                            d = p * a
-                            bal = bal - d
-                            print(bal)
+                                elif (name1 == 'tcs'):
+                                    a = data["Stocks"][2]["Share Price per stock"]
+                                    d = share * a
+                                    bal = bal - d
+                                    y['bal'] = bal
+                                    print(y['bal'])
+                                    bt = data["Stocks"][2]["Total Price"]
+                                    bt = bt - d
+                                    data["Stocks"][2]["Total Price"] = bt
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    print('Your balance is-', y['bal'])
 
+                                elif (name1 == 'microsoft'):
+                                    a = data["Stocks"][3]["Share Price per stock"]
+                                    d = share * a
+                                    bal = bal - d
+                                    y['bal'] = bal
+                                    bt = data["Stocks"][3]["Total Price"]
+                                    bt = bt - d
+                                    data["Stocks"][3]["Total Price"] = bt
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    print('Your balance is-', y['bal'])
+
+                    elif (choice == 2):
+                        name2 = input('Enter the stock company you want to sell-')
+                        share2 = int(input('Enter the number of share you invested-'))
+                        if (name2 == 'facebook'):
+                            for i in range(len(stock)):
+                                if (stock[i]['name'] == 'facebook'):
+                                    b = data['Stocks'][0]["Share Price per stock"]
+                                    q = share2 * b
+                                    bal = bal + q
+                                    y['bal'] = bal
+                                    tb = data["Stocks"][0]["Total Price"]
+                                    tb = tb - d
+                                    data["Stocks"][0]["Total Price"] = tb
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    del stock[i]
+                                    break
+                        elif (name2 == 'google'):
+                            for i in range(len(stock)):
+                                if (stock[i]['name'] == 'google'):
+                                    b = data['Stocks'][1]["Share Price per stock"]
+                                    q = share2 * b
+                                    bal = bal + q
+                                    y['bal'] = bal
+                                    tb = data["Stocks"][1]["Total Price"]
+                                    tb = tb - d
+                                    data["Stocks"][1]["Total Price"] = tb
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, inedent=2)
+                                    del stock[i]
+                                    break
+                        elif (name2 == 'tcs'):
+                            for i in range(len(stock)):
+                                if (stock[i]['name'] == 'tcs'):
+                                    b = data['Stocks'][2]["Share Price per stock"]
+                                    q = share2 * b
+                                    bal = bal + q
+                                    y['bal'] = bal
+                                    tb = data["Stocks"][2]["Total Price"]
+                                    tb = tb - d
+                                    data["Stocks"][2]["Total Price"] = tb
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    del stock[i]
+                                    break
+                        elif (name2 == 'microsoft'):
+                            for i in range(len(stock)):
+                                if (stock[i]['name'] == 'microsoft'):
+                                    b = data['Stocks'][3]["Share Price per stock"]
+                                    q = share2 * b
+                                    bal = bal + q
+                                    y['bal'] = bal
+                                    tb = data["Stocks"][3]["Total Price"]
+                                    tb = tb - d
+                                    data["Stocks"][3]["Total Price"] = tb
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    del stock[i]
+                                    break
+
+                    st = input('Enter y to continue-')
+                    print(stock)
+                y['stock'] = stock
+                x["Customer"].append(y)
+        else:
+            x = {"Customer": []}
+            user = int(input('Enter the number of users-'))
+            for i in range(user):
+                y = {}
+                name = input("Enter your name to register -")
+                bal = int(input('Enter the amount with you-'))
+                y['name'] = name
+                y['bal'] = bal
+                stock = []
+                y['stock'] = stock
+                st = 'y'
+                while (st == 'y'):
+                    choice = int(input('Enter 1 to buy or 2 to sell-'))
+                    if (choice == 1):
+                        n1 = int(input('Enter the number of stock companies -'))
+                        for i in range(n1):
+                            z = {}
+                            name1 = input('Enter the stock name within these companies Facebook,Google,tcs,microsoft-')
+                            share = int(input('Enter the number of shares-'))
+                            z['name'] = name1
+                            z['share'] = share
+                            stock.append(z)
+
+                            with open('commercial.json', 'r') as fp:
+                                data = json.load(fp)
+                                if (name1 == 'facebook'):
+                                    a = data["Stocks"][0]["Share Price per stock"]
+                                    d = share * a
+                                    bal = bal - d
+                                    y['bal'] = bal
+                                    bt = data["Stocks"][0]["Total Price"]
+                                    bt = bt - d
+                                    data["Stocks"][0]["Total Price"] = bt
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    print('Your balance is-', y['bal'])
+
+                                elif (name1 == 'google'):
+                                    a = data["Stocks"][1]["Share Price per stock"]
+                                    d = share * a
+                                    bal = bal - d
+                                    y['bal'] = bal
+                                    bt = data["Stocks"][1]["Total Price"]
+                                    bt = bt - d
+                                    data["Stocks"][1]["Total Price"] = bt
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    print('Your balance is-', y['bal'])
+
+                                elif (name1 == 'tcs'):
+                                    a = data["Stocks"][2]["Share Price per stock"]
+                                    d = share * a
+                                    bal = bal - d
+                                    y['bal'] = bal
+                                    print(y['bal'])
+                                    bt = data["Stocks"][2]["Total Price"]
+                                    bt = bt - d
+                                    data["Stocks"][2]["Total Price"] = bt
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    print('Your balance is-', y['bal'])
+
+                                elif (name1 == 'microsoft'):
+                                    a = data["Stocks"][3]["Share Price per stock"]
+                                    d = share * a
+                                    bal = bal - d
+                                    y['bal'] = bal
+                                    bt = data["Stocks"][3]["Total Price"]
+                                    bt = bt - d
+                                    data["Stocks"][3]["Total Price"] = bt
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    print('Your balance is-', y['bal'])
+
+                    elif (choice == 2):
+                        name2 = input('Enter the stock company you want to sell-')
+                        share2 = int(input('Enter the number of share you invested-'))
+                        if (name2 == 'facebook'):
+                            for i in range(len(stock)):
+                                if (stock[i]['name'] == 'facebook'):
+                                    b = data['Stocks'][0]["Share Price per stock"]
+                                    q = share2 * b
+                                    bal = bal + q
+                                    y['bal'] = bal
+                                    tb = data["Stocks"][0]["Total Price"]
+                                    tb = tb - d
+                                    data["Stocks"][0]["Total Price"] = tb
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    del stock[i]
+                                    break
+                        elif (name2 == 'google'):
+                            for i in range(len(stock)):
+                                if (stock[i]['name'] == 'google'):
+                                    b = data['Stocks'][1]["Share Price per stock"]
+                                    q = share2 * b
+                                    bal = bal + q
+                                    y['bal'] = bal
+                                    tb = data["Stocks"][1]["Total Price"]
+                                    tb = tb - d
+                                    data["Stocks"][1]["Total Price"] = tb
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, inedent=2)
+                                    del stock[i]
+                                    break
+                        elif (name2 == 'tcs'):
+                            for i in range(len(stock)):
+                                if (stock[i]['name'] == 'tcs'):
+                                    b = data['Stocks'][2]["Share Price per stock"]
+                                    q = share2 * b
+                                    bal = bal + q
+                                    y['bal'] = bal
+                                    tb = data["Stocks"][2]["Total Price"]
+                                    tb = tb - d
+                                    data["Stocks"][2]["Total Price"] = tb
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    del stock[i]
+                                    break
+                        elif (name2 == 'microsoft'):
+                            for i in range(len(stock)):
+                                if (stock[i]['name'] == 'microsoft'):
+                                    b = data['Stocks'][3]["Share Price per stock"]
+                                    q = share2 * b
+                                    bal = bal + q
+                                    y['bal'] = bal
+                                    tb = data["Stocks"][3]["Total Price"]
+                                    tb = tb - d
+                                    data["Stocks"][3]["Total Price"] = tb
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                    del stock[i]
+                                    break
+
+                    st = input('Enter y to continue-')
+                    print(stock)
+                y['stock'] = stock
                 x["Customer"].append(y)
                 print(x)
-                with open('customer.json', 'w') as fp:  # write the dict to the json file
-                    json.dump(x, fp)
 
-            elif(choice==2):
-                print(x)
-                comp = input('Enter the Stock name you want to sell-')
-                ab=int(input('Enter the no of shares you invested-'))
-                if (comp == "tcs"):
-                    k = data["Stocks"][2]["Share Price per stock"]
-                    y["Stock_Name"].remove("tcs")
-                    y["Number of Shares"].remove(ab)
-                    j=k*ab
-                    bal=bal+j
-                    print(bal)
-                elif (comp == "google"):
-                    k = data["Stocks"][1]["Share Price per stock"]
-                    y["Stock_Name"].remove("google")
-                    y["Number of Shares"].remove(ab)
-                    j=k*ab
-                    bal=bal+j
-                    print(bal)
-                elif (comp == "facebook"):
-                    k = data["Stocks"][0]["Share Price per stock"]
-                    y["Stock_Name"].remove("facebook")
-                    y["Number of Shares"].remove(ab)
-                    j=k*ab
-                    bal=bal+j
-                    print(bal)
-                elif (comp == "microsoft"):
-                    k = data["Stocks"][3]["Share Price per stock"]
-                    y["Stock_Name"].remove("microsoft")
-                    y["Number of Shares"].remove(ab)
-                    j=k*ab
-                    bal=bal+j
-                    print(bal)
-
-                x["Customer"].clear()
-                x["Customer"].append(y)
-                with open('customer.json', 'w') as fp:
-                    json.dump(x,fp)
-                print(x)
-
-            st = input('Enter y to continue or any other key to discontinue-')
-Customer()
+customer()

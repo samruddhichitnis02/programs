@@ -1,11 +1,12 @@
 import json
+import os
 
 def customer():
     x = {"Customer": [ ]}
     user = int(input('Enter the number of users-'))
     for i in range(user):
         y={}
-        name = input("Enter your name to register-")
+        name = input("Enter your name to register -")
         bal = int(input('Enter the amount with you-'))
         y['name']=name
         y['bal']=bal
@@ -15,10 +16,10 @@ def customer():
         while(st=='y'):
             choice=int(input('Enter 1 to buy or 2 to sell-'))
             if(choice==1):
-                n1=int(input('Enter the number of stock companies-'))
+                n1=int(input('Enter the number of stock companies -'))
                 for i in range(n1):
                     z={ }
-                    name1=input('Enter the stock name-')
+                    name1=input('Enter the stock name within these companies Facebook,Google,tcs,microsoft-')
                     share=int(input('Enter the number of shares-'))
                     z['name']=name1
                     z['share']=share
@@ -32,6 +33,11 @@ def customer():
                             d=share*a
                             bal=bal-d
                             y['bal']=bal
+                            bt=data["Stocks"][0]["Total Price"]
+                            bt=bt-d
+                            data["Stocks"][0]["Total Price"]=bt
+                            with open('commercial.json','w') as f:
+                                json.dump(data,f,indent=2)
                             print('Your balance is-',y['bal'])
 
                         elif (name1 == 'google'):
@@ -39,6 +45,11 @@ def customer():
                             d = share * a
                             bal = bal - d
                             y['bal'] = bal
+                            bt = data["Stocks"][1]["Total Price"]
+                            bt = bt - d
+                            data["Stocks"][1]["Total Price"] = bt
+                            with open('commercial.json', 'w') as f:
+                                json.dump(data, f,indent=2)
                             print('Your balance is-', y['bal'])
 
                         elif (name1 == 'tcs'):
@@ -47,6 +58,11 @@ def customer():
                             bal = bal - d
                             y['bal'] = bal
                             print(y['bal'])
+                            bt = data["Stocks"][2]["Total Price"]
+                            bt = bt - d
+                            data["Stocks"][2]["Total Price"] = bt
+                            with open('commercial.json', 'w') as f:
+                                json.dump(data, f,indent=2)
                             print('Your balance is-',y['bal'])
 
                         elif (name1 == 'microsoft'):
@@ -54,6 +70,11 @@ def customer():
                             d = share * a
                             bal = bal - d
                             y['bal'] = bal
+                            bt = data["Stocks"][3]["Total Price"]
+                            bt = bt - d
+                            data["Stocks"][3]["Total Price"] = bt
+                            with open('commercial.json', 'w') as f:
+                                json.dump(data, f,indent=2)
                             print('Your balance is-',y['bal'])
 
             elif(choice==2):
@@ -66,6 +87,11 @@ def customer():
                             q=share2*b
                             bal=bal+q
                             y['bal']=bal
+                            tb = data["Stocks"][0]["Total Price"]
+                            tb = tb - d
+                            data["Stocks"][0]["Total Price"] = tb
+                            with open('commercial.json', 'w') as f:
+                                json.dump(data, f,indent=2)
                             del stock[i]
                             break
                 elif (name2 == 'google'):
@@ -75,6 +101,11 @@ def customer():
                             q = share2 * b
                             bal = bal + q
                             y['bal'] = bal
+                            tb = data["Stocks"][1]["Total Price"]
+                            tb = tb - d
+                            data["Stocks"][1]["Total Price"] = tb
+                            with open('commercial.json', 'w') as f:
+                                json.dump(data, f,inedent=2)
                             del stock[i]
                             break
                 elif (name2 == 'tcs'):
@@ -84,6 +115,11 @@ def customer():
                             q = share2 * b
                             bal = bal + q
                             y['bal'] = bal
+                            tb = data["Stocks"][2]["Total Price"]
+                            tb = tb - d
+                            data["Stocks"][2]["Total Price"] = tb
+                            with open('commercial.json', 'w') as f:
+                                json.dump(data, f,indent=2)
                             del stock[i]
                             break
                 elif (name2 == 'microsoft'):
@@ -93,23 +129,27 @@ def customer():
                             q = share2 * b
                             bal = bal + q
                             y['bal'] = bal
+                            tb = data["Stocks"][3]["Total Price"]
+                            tb = tb - d
+                            data["Stocks"][3]["Total Price"] = tb
+                            with open('commercial.json', 'w') as f:
+                                json.dump(data, f,indent=2)
                             del stock[i]
                             break
-
-
-
-
 
 
             st=input('Enter y to continue-')
             print(stock)
         y['stock'] = stock
-        x["Customer"].append(y)
+        #x["Customer"].append(y)
         print(x)
-        with open('customer.json','w') as f:
-            json.dump(x,f)
-
-
+        with open('customer.json','a') as f:
+            if(os.stat('customer.json').st_size>0):
+                x["Customer"]=y
+                json.dumps(x,indent=2)
+            else:
+                x["Customer"].append(y)
+                json.dump(x,f,indent=2)
 
 
 customer()
