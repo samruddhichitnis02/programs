@@ -1,1 +1,1 @@
-{"Customer": [{"name": "sam", "bal": 3855, "stock": [{"name": "tcs", "share": 5}, {"name": "google", "share": 6}, {"name": "microsoft", "share": 3}]}, {"name": "sam", "bal": 3855, "stock": [{"name": "tcs", "share": 5}, {"name": "google", "share": 6}, {"name": "microsoft", "share": 3}]}]}
+{"Customer": [{"name": "abc", "bal": 4150, "stock": [{"name": "google", "share": 5}, {"name": "tcs", "share": 5}]}, {"name": "xyz", "bal": 3400, "stock": [{"name": "google", "share": 6}]}]}
