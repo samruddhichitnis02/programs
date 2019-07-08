@@ -1,0 +1,14 @@
+{
+  "Customer": [
+    {
+      "name": "abc",
+      "bal": 4000,
+      "stock": []
+    },
+    {
+      "name": "abc",
+      "bal": 4000,
+      "stock": []
+    }
+  ]
+}
