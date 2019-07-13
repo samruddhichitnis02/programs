@@ -5,7 +5,7 @@ class Customer:
     def __init__(self):
         self.data=' '
         self.stock=[ ]
-        self.y={ }
+
 
     def create(self):
         x={"Customer":[ ]}
@@ -20,33 +20,25 @@ class Customer:
 
     def write_to_file(self):
         with open('customer.json','w') as f:
-            json.dump(self.data,f, indent=2)
+            json.dump(self.data,f,indent=2)
         f.close( )
 
     def menu(self):
-        choice = int(input('Enter 1 to register and 2 to login 3 to main menu 4 to quit'))
-        if (choice == 1):
-            self.customer()
-        elif (choice == 2):
-            self.update_user()
-        elif (choice == 3):
+        try:
+            choice = int(input('Enter 1 to register 2  to main menu 3 to quit'))
+            if (choice == 1):
+                self.customer()
+            elif(choice==2):
+                self.menu()
+            elif (choice == 3):
+                return
+            else:
+                print('Invalid Choice!')
+        except:
+            print('Enter Integers!')
             self.menu()
-        elif (choice == 4):
-            return
 
-    def update_user(self):
-        self.open_file()
-        name3 = input('Enter the user name to login-')
-        for i in range(len(self.data['Customer'])):
-            if (self.data['Customer'][i]['name'] == name3):
-                print(self.data['Customer'][i])
-                choice=int(input('Enter 1 to delete stock companies 2 to add stock companies-'))
-                if(choice==1):
-                    name2 = input('Enter the stock company you want to sell-')
-                    for i in range(len(self.data['Customer'])):
-                        if (name2 == self.data['Customer']['Stock'][i]['name']):
-                            del self.data['stock'][i]
-                            break
+
 
 
 
@@ -58,13 +50,13 @@ class Customer:
             self.open_file()
             user = int(input('Enter the number of users-'))
             for i in range(user):
-                #y = {}
                 name = input("Enter your name to register -")
                 if(name.isalpha()):
+                    y={ }
                     bal = int(input('Enter the amount with you-'))
-                    self.y['name'] = name
-                    self.y['bal'] = bal
-                    self.y['stock'] = self.stock
+                    y['name'] = name
+                    y['bal'] = bal
+                    y['stock'] = self.stock
                     st = 'y'
                     while (st == 'y'):
                         choice = int(input('Enter 1 to buy or 2 to sell-'))
@@ -86,26 +78,26 @@ class Customer:
                                         a = data["Stocks"][i]["Share Price per stock"]
                                         d = share * a
                                         bal = bal - d
-                                        self.y['bal'] = bal
-                                        print(self.y['bal'])
+                                        y['bal'] = bal
+                                        print(y['bal'])
                                         bt = data["Stocks"][i]["Total Price"]
                                         bt = bt - d
                                         data["Stocks"][i]["Total Price"] = bt
                                         with open('commercial.json', 'w') as f:
                                             json.dump(data, f, indent=2)
-                                        print('Your balance is-', self.y['bal'])
+                                        print('Your balance is-', y['bal'])
 
 
 
                         elif (choice == 2):
-                            name2 = input('Enter the stock company2you want to sell-')
+                            name2 = input('Enter the stock company you want to sell-')
                             share2 = int(input('Enter the number of share you invested-'))
                             for i in range(len(data['Stocks'])):
                                 if (name2 == data['Stocks'][i]['Stock Name']):
                                     b = data['Stocks'][i]["Share Price per stock"]
                                     q = share2 * b
                                     bal = bal + q
-                                    self.y['bal'] = bal
+                                    y['bal'] = bal
                                     tb = data["Stocks"][i]["Total Price"]
                                     tb = tb - d
                                     data["Stocks"][i]["Total Price"] = tb
@@ -120,12 +112,12 @@ class Customer:
 
                         st = input('Enter y to continue-')
                         print(self.stock)
-                    self.y['stock'] = self.stock
-                    self.data["Customer"].append(self.y)
+                    y['stock'] = self.stock
+                    self.data["Customer"].append(y)
                     print(self.data)
                     self.write_to_file()
                 else:
-                    print('Invalid Input!')
+                    print('Error!')
                     self.customer()
 
         except:

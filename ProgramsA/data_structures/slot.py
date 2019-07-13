@@ -1,13 +1,23 @@
 import sys
 sys.path.append('../')
 from Utilities import  data
+y=[ ]
 
 try:
     s=data.Linked_slot()
+    s1=data.Linked_slot()
+    s2 = data.Linked_slot()
+    s3 = data.Linked_slot()
+    s4 = data.Linked_slot()
+    s5 = data.Linked_slot()
+    s6 = data.Linked_slot()
+    s7 = data.Linked_slot()
+    s8 = data.Linked_slot()
+    s9 = data.Linked_slot()
+    s10=data.Linked_slot()
+
     x=[ ]
-    l0,l1, l2, l3, l4,l5,l6,l7,l8,l9,l10 = ([] for i in range(11))
-    fn= input('Enter the file name-')
-    with open(fn) as f:
+    with open('numbers.txt','r') as f:
         for line in f:
             for word in line.split():
                 x.append(word)
@@ -15,97 +25,78 @@ try:
                 x[i] = int(x[i])
 
     for i in(x):
-        if(i%11==0):
-            l0.append(i)
-        elif(i%11==1):
-            l1.append(i)
-        elif (i % 11 ==2):
-            l2.append(i)
-        elif (i % 11 ==3):
-            l3.append(i)
-        elif (i % 11 ==4):
-            l4.append(i)
-        elif (i % 11 ==5):
-            l5.append(i)
-        elif (i % 11 ==6):
-            l6.append(i)
-        elif (i % 11 ==7):
-            l7.append(i)
-        elif (i % 11 ==8):
-            l8.append(i)
-        elif (i % 11 ==9):
-            l9.append(i)
-        elif (i % 11 ==10):
-            l10.append(i)
+        if (i % 11 == 0):
+            s.insert(i)
+            y.append(s)
+            s.print_list()
+            s.delete_list()
 
-    for i in l0:
-        s.insert(i)
-    print('0th slot is-')
-    s.print_list()
-    s.delete_list(l0)
+        elif (i % 11 == 1):
+            s1.insert(i)
+            s1.print_list()
+            y.append(s1)
+            s1.delete_list()
 
-    for i in l1:
-        s.insert(i)
-    print('1st slot is-')
-    s.print_list()
-    s.delete_list(l1)
+        elif (i % 11 == 2):
+            s2.insert(i)
+            s2.print_list()
+            y.append(s2)
+            s2.delete_list()
 
-    for i in l2:
-        s.insert(i)
-    print('2nd slot is-')
-    s.print_list()
-    s.delete_list(l2)
+        elif (i % 11 == 3):
+            s3.insert(i)
+            y.append(s3)
+            s3.print_list()
+            s3.delete_list()
 
-    for i in l3:
-        s.insert(i)
-    print('3rd slot is-')
-    s.print_list()
-    s.delete_list(l3)
+        elif (i % 11 == 4):
+            s4.insert(i)
+            y.append(s4)
+            s4.print_list()
+            s4.delete_list()
 
-    for i in l4:
-        s.insert(i)
-    print('4th slot is-')
-    s.print_list()
-    s.delete_list(l4)
+        elif (i % 11 == 5):
+            s5.insert(i)
+            y.append(s5)
+            s5.print_list()
+            s5.delete_list()
 
-    for i in l5:
-        s.insert(i)
-    print('5th slot is-')
-    s.print_list()
-    s.delete_list(l5)
+        elif (i % 11 == 6):
+            s6.insert(i)
+            y.append(s6)
+            s6.print_list()
+            s6.delete_list()
 
-    for i in l6:
-        s.insert(i)
-    print('6th slot is-')
-    s.print_list()
-    s.delete_list(l6)
+        elif (i % 11 == 7):
+            s7.insert(i)
+            y.append(s7)
+            s7.print_list()
+            s7.delete_list()
 
-    for i in l7:
-        s.insert(i)
-    print('7th slot is-')
-    s.print_list()
-    s.delete_list(l7)
+        elif (i % 11 == 8):
+            s8.insert(i)
+            y.append(s8)
+            s8.print_list()
+            s8.delete_list()
 
-    for i in l8:
-        s.insert(i)
-    print('8th slot is-')
-    s.print_list()
-    s.delete_list(l8)
+        elif (i % 11 == 9):
+            s9.insert(i)
+            y.append(s9)
+            s9.print_list()
+            s9.delete_list()
 
-    for i in l9:
-        s.insert(i)
-    print('9th slot is-')
-    s.print_list()
-    s.delete_list(l9)
+        elif (i % 11 == 10):
+            s10.insert(i)
+            y.append(s10)
+            s10.print_list()
 
-    for i in l10:
-        s.insert(i)
-    print('10th slot is-')
-    s.print_list()
-    s.delete_list(l10)
+
+
+    print(y)
     j=s.search(x)
 
     print(j)
 
 except:
-    print('file not found!')
+    raise ValueError
+    #print('file not found!')

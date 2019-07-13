@@ -1,0 +1,25 @@
+{
+  "doctors": [
+    {
+      "name": "Mehta",
+      "Id": 10,
+      "specialization": "MBBS",
+      "availability": "AM",
+      "patients":0
+    },
+    {
+      "name": "Chitnis",
+      "Id": 30,
+      "specialization": "Neurologist",
+      "availability": "PM",
+      "patients": 0
+    },
+    {
+      "name": "Patil",
+      "Id": 20,
+      "specialization": "Cardiologist",
+      "availability": "AM & PM",
+      "patients": 0
+    }
+  ]
+}

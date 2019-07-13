@@ -1,0 +1,14 @@
+{
+  "Patients": [
+    {
+      "name": "samruddhi",
+      "cno": 9819479729,
+      "age": 21
+    },
+    {
+      "name": "sam",
+      "cno": 89399090,
+      "age": 67
+    }
+  ]
+}

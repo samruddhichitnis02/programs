@@ -1,118 +1,112 @@
-# Unordered List
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
 
-class node:      #creation of node
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-
-class Linked_list:
+class Linked_List:
     def __init__(self):
-        self.head = None
+        self.head=None
 
-    def insert(self, newNode): #Linking of all the nodes created
-        fa = node(newNode)#call the class node to put the data so that a node is formed
-        if self.head is None:#if the head is empty then put the 1st element
-            self.head = fa
-        else: #if the head has the 1st element than put the remaining data in the next nodes
-            p = self.head
-            while p.next is not None:
-                p = p.next #traversing the linked list
-            p.next = fa
-
-    def print_list(self): #printing the nodes
-        z = self.head
-        while z is not None:#traversing the linked list to print the data
-            print(z.data, ' ', end='')
-            z = z.next
-        print()
-
-    def search(self, x, d):
-        if d not in x:
-            x.append(d)
-        elif d in x:
-            x.remove(d)
-        for i in range(len(x)):
-            self.head = None #removes the 1st node from the linked list
-        for i in range(len(x)):#now insert the new entries if any or remove the old entries if any
-            self.insert(x[i])
-        self.print_list()
-        # print(x)
-        with open('abc.txt', 'w') as f: #write the changes made back to the file
-            for i in (x):
-                str = ''.join(i) #list to string
-                stri = ' ' #add some spaces between the strings
-                f.write(str + stri)
-
-
-# Ordered List
-class Node:
-    def __init__(self, data):#function to create the nodes
-        self.data = data
-        self.next = None
-
-
-class Link_list:
-    def __init__(self):#Function to initialise the head element
-        self.head = None
-
-    def insert(self, newNode):#Function to insert data in to the node
-        fa = Node(newNode)
+    def insert(self,newnode):
+        fa=node(newnode)
         if self.head is None:
-            self.head = fa
+            self.head=fa
         else:
-            p = self.head
+            p=self.head
             while p.next is not None:
-                p = p.next
-            p.next = fa
+                p=p.next
+            p.next=fa
 
-
-
-    def print_list(self):#Function to print the node
-        z = self.head
+    def print_list(self):
+        z=self.head
         while z is not None:
-            print(z.data, ' ', end='')
-            z = z.next
+            print(z.data,end=' ')
+            z=z.next
+
+
+    def insert_at_end(self,a):
+        z=self.head
+        while z.next is not None:
+            z=z.next
+        fa = node(a)
+        temp = fa
+        z.next=temp
+        self.print_list()
+
+    def addNode(self, data):
+
+        temp = self.head
+        if temp is None:
+            fa = node(data)
+            self.head = fa
+            return
+
+        if temp.data > data:
+            fa = node(data)
+            fa.next = temp
+            self.head = fa
+            return
+
+        while temp.next is not None:
+            if temp.next.data > data:
+                break
+            temp = temp.next
+        fa = node(data)
+        fa.next = temp.next
+        temp.next = fa
+        return
+
+
+    def delete_node(self,a):
+        z=self.head
+        while z is not None:
+            if(z.data==a):
+                prev.next=z.next
+                z.next=None
+                break
+            prev=z
+            z=z.next
+        self.print_list()
+
+
+    def search(self,a):
+        z=self.head
+        while z is not None:
+            if(z.data==a):
+                return True
+            z=z.next
+        return False
+
+    def write_to_file(self):
+        try:
+            print( )
+            fn=input('Enter the file you entered first-')
+            with open(fn,'w') as f:
+                z=self.head
+                while z is not None:
+                    str=' '
+                    f.write(z.data+str)
+                    z=z.next
+            f.close()
+        except:
+            print('Error!')
+
+    def write_file(self):
         print()
+        x=[ ]
+        fn=input('Enter the file you entered first-')
+        with open(fn,'w') as f:
+            z=self.head
+            while z is not None:
+                x.append(z.data)
+                z=z.next
+            for i in range(len(x)):
+                x[i]=str(x[i])
+                stri=' '
+                f.write(stri+x[i])
+        f.close()
 
-    def order(self, x, b): #sort the nodes
-        for i in range(len(x)):
-            self.head = None
-        for i in range(len(x)):
-            for j in range(i + 1, len(x)):
-                if (x[i] > x[j]):
-                    t = x[i]
-                    x[i] = x[j]
-                    x[j] = t
-        for i in range(len(x)):
-            self.insert(x[i])
-        self.print_list()
 
-        d = int(input('Enter the element to search in the list-'))
-        if d not in x:
-            x.append(d)
-        elif d in x:
-            x.remove(d)
-        for i in range(len(x)):
-            for j in range(i + 1, len(x)):
-                if (x[i] > x[j]):
-                    t = x[i]
-                    x[i] = x[j]
-                    x[j] = t
-        for i in range(len(x)):
-            self.head = None
-        for i in range(len(x)):
-            self.insert(x[i])
-        self.print_list()
-        for i in range(0, len(x)):
-            x[i] = str(x[i])
-            b.append(x[i])
-
-        with open('pqr.txt', 'w') as f: #enter the new data to the file
-            for i in range(len(b)):
-                st = ''.join(b[i])
-                stri = ' '
-                f.write(st + stri)
 
 
 # Stack
@@ -267,184 +261,11 @@ def anagram_2D():
     return a
 
 #Calender
-def cal(y,m):
-    a=[ ]
-    for i in range(0, 7):
-        a.append([])
-    b = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']
-    for i in range(0, len(b)):
-        a[i].append(b[i])
-
-    if(((y%4==0)and(y%100!=0)) or (y%400==0)): #For leap year
-        p = 1
-        d =[6, 9, 3, 6, 1, 4, 6, 2, 5, 7, 3, 5]
-        d0 = int((y + y / 4 - y / 100 + y / 400 + d[m - 1] + p) % 7)
-    else:
-        p=1
-        d = [0, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
-        d0 = int((y + y / 4 - y / 100 + y / 400 + d[m - 1] + p) % 7)
-
-    if (d0 == 0):
-        j = 0
-        if (m == 1 or m == 3 or m == 5 or m == 7 or m == 8 or m == 10 or m == 12):
-            for k in range(1, 32):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-        elif (m == 11 or m == 4 or m == 6 or m == 9):
-            for k in range(1, 31):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-        elif(m==2):
-            for k in range(1, 29):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-
-    elif (d0 == 1):
-        j = 1
-        if (m == 1 or m == 3 or m == 5 or m == 7 or m == 8 or m == 10 or m == 12):
-            for k in range(1, 32):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-        if (m == 11 or m == 4 or m == 6 or m == 9):
-            for k in range(1, 31):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-        elif (m == 2):
-            for k in range(1, 29):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-
-
-    elif (d0 == 2):
-        j = 2
-        if (m == 1 or m == 3 or m == 5 or m == 7 or m == 8 or m == 10 or m == 12):
-            for k in range(1, 32):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-        if (m == 11 or m == 4 or m == 6 or m == 9):
-            for k in range(1, 31):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-        elif (m == 2):
-            for k in range(1, 29):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-    elif (d0 == 3):
-        j = 3
-        if (m == 1 or m == 3 or m == 5 or m == 7 or m == 8 or m == 10 or m == 12):
-            for k in range(1, 32):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-        if (m == 11 or m == 4 or m == 6 or m == 9):
-            for k in range(1, 31):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-        elif (m == 2):
-            for k in range(1, 29):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-
-    elif (d0 == 4):
-        j = 4
-        if (m == 1 or m == 3 or m == 5 or m == 7 or m == 8 or m == 10 or m == 12):
-            for k in range(1, 32):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-        elif (m == 11 or m == 4 or m == 6 or m == 9):
-            for k in range(1, 31):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-        elif (m == 2):
-            for k in range(1, 29):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-
-    elif (d0 == 5):
-        j = 5
-        if (m == 1 or m == 3 or m == 5 or m == 7 or m == 8 or m == 10 or m == 12):
-            for k in range(1, 32):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-        elif (m == 11 or m == 4 or m == 6 or m == 9):
-            for k in range(1, 31):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-        elif (m == 2):
-            for k in range(1, 29):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-
-    elif (d0 == 6):
-        j = 6
-        if (m == 1 or m == 3 or m == 5 or m == 7 or m == 8 or m == 10 or m == 12):
-            for k in range(1, 32):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-        elif (m == 11 or m == 4 or m == 6 or m == 9):
-            for k in range(1, 31):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
-
-        elif (m == 2):
-            for k in range(1, 29):
-                a[j].append(k)
-                j = j + 1
-                if (j == 7):
-                    j = 0
-
+def cal(y,m,d):
+    y0 = y - (14 - m) // 12
+    x = y0 + y0 // 4 - y0 // 100 + y0 // 400
+    m0 = m + 12 * ((14 - m) // 12) - 2
+    d0 = (d + x + 31 * m0 // 12) % 7
 
     if (m == 1):
         print('January', y)
@@ -470,7 +291,8 @@ def cal(y,m):
         print('November', y)
     else:
         print('December', y)
-    return a
+
+    return d0
 
 
 #Hashing Function to search  a Number in slot
@@ -480,9 +302,13 @@ class Node_slot:
         self.next=None
 
 class Linked_slot:
+    y=[ ]
     def __init__(self):
         self.head=None
+
+
     def insert(self,newnode):
+
         fa=Node_slot(newnode)
         if self.head is  None:
             self.head=fa
@@ -492,6 +318,10 @@ class Linked_slot:
                 p=p.next
             p.next=fa
 
+
+
+
+
     def print_list(self):
         z=self.head
         while z is not None:
@@ -499,9 +329,12 @@ class Linked_slot:
             z=z.next
         print()
 
-    def delete_list(self,l):
-        for i in range(len(l)):
-            self.head=None
+    def delete_list(self):
+        z=self.head
+        while z:
+            prev=z.next
+            del z.data
+            z=prev
 
     def search(self,y):
         q=[ ]

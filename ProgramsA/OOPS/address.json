@@ -1,0 +1,44 @@
+{
+  "add_data": [
+    {
+      "f_name": "abc",
+      "l_name": "xyz",
+      "Contact Num": 987654321,
+      "address": "tilaknagar",
+      "city": "chembur",
+      "pincode": 421202
+    },
+    {
+      "f_name": "neha",
+      "l_name": "wxt",
+      "Contact Num": 78989789879,
+      "address": "anandnagar",
+      "city": "thakurli",
+      "pincode": 212302
+    },
+    {
+      "f_name": "sam",
+      "l_name": "chitnis",
+      "Contact Num": 9819479739,
+      "address": "tilaknagar",
+      "city": "dombivili",
+      "pincode": 321202
+    },
+    {
+      "f_name": "samriddhi",
+      "l_name": "xyz",
+      "Contact Num": 9819578739,
+      "address": "shivajinagar",
+      "city": "thane",
+      "pincode": 431202
+    },
+    {
+      "f_name": "supriya",
+      "l_name": "chitnis",
+      "Contact Num": 9819456579,
+      "address": "shivajichowk",
+      "city": "kurla",
+      "pincode": 410202
+    }
+  ]
+}

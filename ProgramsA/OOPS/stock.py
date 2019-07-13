@@ -25,5 +25,6 @@ try:
         data = json.load(f)
     S.stock(data)
     S.stock_calculation(data)
+    f.close()
 except:
     print('File Not Found!')

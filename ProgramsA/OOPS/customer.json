@@ -2,63 +2,31 @@
   "Customer": [
     {
       "name": "sam",
-      "bal": 4580,
+      "bal": 1930,
       "stock": [
         {
           "name": "tcs",
-          "share": 6
-        }
-      ]
-    },
-    {
-      "name": "abc",
-      "bal": 5580,
-      "stock": [
-        {
-          "name": "tcs",
-          "share": 6
-        }
-      ]
-    },
-    {
-      "name": "xyz",
-      "bal": 6750,
-      "stock": [
-        {
-          "name": "facebook",
-          "share": 5
-        }
-      ]
-    },
-    {
-      "name": "pqr",
-      "bal": 6500,
-      "stock": []
-    },
-    {
-      "name": "lmn",
-      "bal": 4250,
-      "stock": [
-        {
-          "name": "facebook",
-          "share": 5
+          "share": 1
         },
         {
           "name": "google",
-          "share": 5
+          "share": 3
         }
       ]
     },
     {
       "name": "samruddhi",
-      "bal": 6000,
-      "stock": []
-    },
-    {
-      "stock": []
-    },
-    {
-      "stock": []
+      "bal": 3700,
+      "stock": [
+        {
+          "name": "tcs",
+          "share": 1
+        },
+        {
+          "name": "google",
+          "share": 3
+        }
+      ]
     }
   ]
 }

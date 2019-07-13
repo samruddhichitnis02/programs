@@ -1,1 +1,9 @@
-{"Inventorydata": [{"name": "Price", "Weight": 25, "Price": 12}, {"name": "Pulses", "Weight": 20, "Price": 11}, {"name": "Wheat", "Weight": 15, "Price": 10}]}
+{
+  "Inventorydata": [
+    {
+      "name": "rice",
+      "Weight": 5,
+      "Price": 60
+    }
+  ]
+}

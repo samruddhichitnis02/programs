@@ -4,25 +4,25 @@
       "Stock Name": "facebook",
       "Number of Shares": 30,
       "Share Price per stock": 50,
-      "Total Price": 49997455
+      "Total Price": 49997105
     },
     {
       "Stock Name": "google",
       "Number of Shares": 50000,
       "Share Price per stock": 100,
-      "Total Price": 4994900
+      "Total Price": 4993600
     },
     {
       "Stock Name": "tcs",
       "Number of Shares": 60,
       "Share Price per stock": 70,
-      "Total Price": 21794260
+      "Total Price": 21791410
     },
     {
       "Stock Name": "microsoft",
       "Number of Shares": 50,
       "Share Price per stock": 65,
-      "Total Price": 22849675
+      "Total Price": 22848895
     }
   ]
 }

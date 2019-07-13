@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../')
 import Utilities.utilities
 try:
     no=int(input('Enter the number of times you want to flip the coin-'))

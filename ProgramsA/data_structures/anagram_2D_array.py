@@ -1,4 +1,6 @@
-import Utilities.data
+import sys
+sys.path.append('../')
+import  Utilities.data
 import Utilities.algo_utility
 n=1000
 z=[ ]
