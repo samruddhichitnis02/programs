@@ -16,5 +16,5 @@ def user():
         else:
             print('Invalid Choice')
     except:
-        raise ValueError
+        print('Invalid Input!')
 user()

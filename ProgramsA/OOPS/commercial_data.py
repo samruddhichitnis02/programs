@@ -36,8 +36,7 @@ class Customer:
             else:
                 print('Enter a Valid Name to register-')
         except:
-            raise ValueError
-            #print('Invalid Input!')
+            print('Invalid Input!')
 
     def login(self):
         self.open_file()
@@ -61,8 +60,7 @@ class Customer:
             else:
                 print('Type a Valid Name!')
         except:
-            raise ValueError
-            #print('Invalid Input!')
+            print('Invalid Input!')
 
     def buy(self,name):
         self.open_file()
@@ -102,7 +100,7 @@ class Customer:
 
 
         except:
-            raise ValueError
+            print('Invalid Input!')
 
     def sell(self,name):
         self.open_file()
@@ -134,18 +132,4 @@ class Customer:
                                     f.close()
             self.write_to_file()
         except:
-            raise ValueError
-"""
-              del self.data['Customer'][i]['stock'][j]['Shares']    
-                            for j in range(len(data['Stocks'])):
-                                if (name1 == data['Stocks'][j]['Stock Name']):
-                                    price = data['Stocks'][j]['Share Price per stock']
-                                    amount = amt + (share * price)
-                                    sh = data['Stocks'][j]['Number of Shares']
-                                    b = sh + share
-                                    print(b)
-                                    data['Stocks'][j]['Number of Shares'] = b
-                                    self.data['Customer'][i]['bal'] = amount
-                                    with open('commercial.json', 'w') as f:
-                                        json.dump(data, f, indent=2)
-                                        f.close()"""
+            print('Invalid Input!')
