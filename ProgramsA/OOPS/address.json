@@ -17,14 +17,6 @@
       "pincode": 212302
     },
     {
-      "f_name": "sam",
-      "l_name": "chitnis",
-      "Contact Num": 9819479739,
-      "address": "tilaknagar",
-      "city": "dombivili",
-      "pincode": 321202
-    },
-    {
       "f_name": "samriddhi",
       "l_name": "xyz",
       "Contact Num": 9819578739,
@@ -39,6 +31,22 @@
       "address": "shivajichowk",
       "city": "kurla",
       "pincode": 410202
+    },
+    {
+      "f_name": "sam",
+      "l_name": "xyzc",
+      "Contact Num": 786878889,
+      "address": "gvhj",
+      "city": "nkjnk",
+      "pincode": 76879
+    },
+    {
+      "f_name": "abc",
+      "l_name": "xyz",
+      "Contact Num": 785687789,
+      "address": "jhdj",
+      "city": "ksjn",
+      "pincode": 658872
     }
   ]
 }

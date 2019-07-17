@@ -1,129 +1,151 @@
 import json
-import os
-
 class Customer:
     def __init__(self):
         self.data=' '
-        self.stock=[ ]
-
-
+        self.y={ }
     def create(self):
         x={"Customer":[ ]}
-        with open('customer.json','w') as f:
-            json.dump(x,f,indent=2)
-        f.close()
+        try:
+            with open('customer.json','w') as f:
+                json.dump(x,f,indent=2)
+            f.close()
+        except:
+            print('File not found!')
 
     def open_file(self):
-        with open('customer.json', 'r') as f:
-            self.data = json.load(f)
+        with open('customer.json','r') as f:
+            self.data=json.load(f)
         f.close()
 
     def write_to_file(self):
         with open('customer.json','w') as f:
             json.dump(self.data,f,indent=2)
-        f.close( )
+        f.close()
 
-    def menu(self):
+    def register(self):
+        self.open_file()
         try:
-            choice = int(input('Enter 1 to register 2  to main menu 3 to quit'))
-            if (choice == 1):
-                self.customer()
-            elif(choice==2):
-                self.menu()
-            elif (choice == 3):
-                return
+            name=input('Enter your name to register-')
+            if(name.isalpha()):
+                self.y['name']=name
+                bal=int(input('Enter ypur balance amount-'))
+                self.y['bal']=bal
+                self.y['stock']=[ ]
+                self.data['Customer'].append(self.y)
+                self.write_to_file()
             else:
-                print('Invalid Choice!')
+                print('Enter a Valid Name to register-')
         except:
-            print('Enter Integers!')
-            self.menu()
+            raise ValueError
+            #print('Invalid Input!')
 
-
-
-
-
-
-
-
-    def customer(self):
+    def login(self):
+        self.open_file()
         try:
-            self.open_file()
-            user = int(input('Enter the number of users-'))
-            for i in range(user):
-                name = input("Enter your name to register -")
-                if(name.isalpha()):
-                    y={ }
-                    bal = int(input('Enter the amount with you-'))
-                    y['name'] = name
-                    y['bal'] = bal
-                    y['stock'] = self.stock
-                    st = 'y'
-                    while (st == 'y'):
-                        choice = int(input('Enter 1 to buy or 2 to sell-'))
-                        with open('commercial.json', 'r') as fp:
-                            data = json.load(fp)
-                            fp.close()
-                        if (choice == 1):
-                            n1 = int(input('Enter the number of stock companies -'))
-                            for i in range(n1):
-                                z = {}
-                                name1 = input(
-                                    'Enter the stock name within these companies Facebook,Google,tcs,microsoft-')
-                                share = int(input('Enter the number of shares-'))
-                                z['name'] = name1
-                                z['share'] = share
-                                self.stock.append(z)
-                                for i in range(0, len(data['Stocks'])):
-                                    if (data['Stocks'][i]['Stock Name'] == name1):
-                                        a = data["Stocks"][i]["Share Price per stock"]
-                                        d = share * a
-                                        bal = bal - d
-                                        y['bal'] = bal
-                                        print(y['bal'])
-                                        bt = data["Stocks"][i]["Total Price"]
-                                        bt = bt - d
-                                        data["Stocks"][i]["Total Price"] = bt
-                                        with open('commercial.json', 'w') as f:
-                                            json.dump(data, f, indent=2)
-                                        print('Your balance is-', y['bal'])
+            name=input('Enter your name to login-')
+            if(name.isalpha):
+                for i in range(len(self.data['Customer'])):
+                    if(name==self.data['Customer'][i]['name']):
+                        print('Enter 1 to buy')
+                        print('2 to sell')
+                        print('3 to exit')
+                        choice=int(input())
+                        if(choice==1):
+                            self.buy(name)
+                        elif(choice==2):
+                            self.sell(name)
+                        elif(choice==3):
+                            pass
+                        else:
+                            print('Invalid Input!')
+            else:
+                print('Type a Valid Name!')
+        except:
+            raise ValueError
+            #print('Invalid Input!')
 
-
-
-                        elif (choice == 2):
-                            name2 = input('Enter the stock company you want to sell-')
-                            share2 = int(input('Enter the number of share you invested-'))
-                            for i in range(len(data['Stocks'])):
-                                if (name2 == data['Stocks'][i]['Stock Name']):
-                                    b = data['Stocks'][i]["Share Price per stock"]
-                                    q = share2 * b
-                                    bal = bal + q
-                                    y['bal'] = bal
-                                    tb = data["Stocks"][i]["Total Price"]
-                                    tb = tb - d
-                                    data["Stocks"][i]["Total Price"] = tb
+    def buy(self,name):
+        self.open_file()
+        try:
+            with open('commercial.json','r') as f:
+                data=json.load(f)
+                for i in range(len(data['Stocks'])):
+                    name2=data['Stocks'][i]['Stock Name']
+                    Price=data['Stocks'][i]['Share Price per stock']
+                    print('Name-',name2)
+                    print('Price Per Stock-',Price)
+            f.close()
+            for i in range(len(self.data['Customer'])):
+                if (name == self.data['Customer'][i]['name']):
+                    amt = self.data['Customer'][i]['bal']
+                    name1 = input('Enter the Company you want to buy shares of-')
+                    if (name == self.data['Customer'][i]['name']):
+                        z = {}
+                        if (name1.isalpha()):
+                            z['name'] = name1
+                            shares = int(input('Enter the number of shares from that Company-'))
+                            z['Shares'] = shares
+                            for j in range(len(data['Stocks'])):
+                                if(name1==data['Stocks'][j]['Stock Name']):
+                                    price = data['Stocks'][j]['Share Price per stock']
+                                    amount = amt - (shares * price)
+                                    sh = data['Stocks'][j]['Number of Shares']
+                                    b= sh - shares
+                                    print(b)
+                                    data['Stocks'][j]['Number of Shares'] = b
+                                    self.data['Customer'][i]['bal'] = amount
                                     with open('commercial.json', 'w') as f:
                                         json.dump(data, f, indent=2)
                                         f.close()
+                            self.data['Customer'][i]['stock'].append(z)
+            self.write_to_file()
 
-                                for j in range(len(self.stock)):
-                                    if (self.stock[j]['name'] == name2):
-                                        del self.stock[j]
-                                        break
-
-                        st = input('Enter y to continue-')
-                        print(self.stock)
-                    y['stock'] = self.stock
-                    self.data["Customer"].append(y)
-                    print(self.data)
-                    self.write_to_file()
-                else:
-                    print('Error!')
-                    self.customer()
 
         except:
-            print('Invalid Input!')
-            self.customer()
+            raise ValueError
 
-
-c=Customer()
-c.menu()
+    def sell(self,name):
+        self.open_file()
+        try:
+            with open('commercial.json','r') as f:
+                data=json.load(f)
+            f.close()
+            for i in range(len(self.data['Customer'])):
+                if (name == self.data['Customer'][i]['name']):
+                    print(self.data['Customer'][i]['stock'])
+                    name1=input('Enter the company you want to delete-')
+                    share=int(input('Enter the shares you invested-'))
+                    amt=self.data['Customer'][i]['bal']
+                    for j in range(len(self.data['Customer'][i]['stock'])):
+                        if(name1==self.data['Customer'][i]['stock'][j]['name'] and share==self.data['Customer'][i]['stock'][j]['Shares']):
+                            del self.data['Customer'][i]['stock'][j]['name']
+                            del self.data['Customer'][i]['stock'][j]['Shares']
+                        for j in range(len(data['Stocks'])):
+                            if (name1 == data['Stocks'][j]['Stock Name']):
+                                price = data['Stocks'][j]['Share Price per stock']
+                                amount = amt + (share * price)
+                                sh = data['Stocks'][j]['Number of Shares']
+                                b = sh + share
+                                print(b)
+                                data['Stocks'][j]['Number of Shares'] = b
+                                self.data['Customer'][i]['bal'] = amount
+                                with open('commercial.json', 'w') as f:
+                                    json.dump(data, f, indent=2)
+                                    f.close()
+            self.write_to_file()
+        except:
+            raise ValueError
+"""
+              del self.data['Customer'][i]['stock'][j]['Shares']    
+                            for j in range(len(data['Stocks'])):
+                                if (name1 == data['Stocks'][j]['Stock Name']):
+                                    price = data['Stocks'][j]['Share Price per stock']
+                                    amount = amt + (share * price)
+                                    sh = data['Stocks'][j]['Number of Shares']
+                                    b = sh + share
+                                    print(b)
+                                    data['Stocks'][j]['Number of Shares'] = b
+                                    self.data['Customer'][i]['bal'] = amount
+                                    with open('commercial.json', 'w') as f:
+                                        json.dump(data, f, indent=2)
+                                        f.close()"""

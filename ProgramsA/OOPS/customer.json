@@ -2,29 +2,72 @@
   "Customer": [
     {
       "name": "sam",
-      "bal": 1930,
+      "bal": 2010,
       "stock": [
         {
-          "name": "tcs",
-          "share": 1
-        },
-        {
-          "name": "google",
-          "share": 3
+          "name": "microsoft",
+          "Shares": 5
         }
       ]
     },
     {
       "name": "samruddhi",
-      "bal": 3700,
+      "bal": 4425,
       "stock": [
         {
           "name": "tcs",
-          "share": 1
+          "Shares": 4
+        },
+        {},
+        {
+          "name": "facebook",
+          "Shares": 5
         },
         {
+          "name": "facebook",
+          "Shares": 5
+        }
+      ]
+    },
+    {
+      "name": "abc",
+      "bal": 5530,
+      "stock": [
+        {
           "name": "google",
-          "share": 3
+          "Shares": 5
+        },
+        {
+          "name": "microsoft",
+          "Shares": 5
+        },
+        {
+          "name": "tcs",
+          "Shares": 6
+        }
+      ]
+    },
+    {
+      "name": "xyz",
+      "bal": 6175
+    },
+    {
+      "name": "pqr",
+      "bal": 7440,
+      "stock": [
+        {
+          "name": "tcs",
+          "Shares": 8
+        }
+      ]
+    },
+    {
+      "name": "Sakshi",
+      "bal": 6800,
+      "stock": [
+        {
+          "name": "facebook",
+          "Shares": 4
         }
       ]
     }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../OOPS/.idea/OOPS.iml" filepath="$PROJECT_DIR$/../OOPS/.idea/OOPS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Utilities/.idea/Utilities.iml" filepath="$PROJECT_DIR$/../Utilities/.idea/Utilities.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/data_structures.iml" filepath="$PROJECT_DIR$/.idea/data_structures.iml" />
+    </modules>
+  </component>
+</project>

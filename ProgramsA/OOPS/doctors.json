@@ -5,18 +5,81 @@
       "Id": 10,
       "specialization": "MBBS",
       "availability": "AM",
-      "patients":0
+      "patients": 0
     },
     {
-      "name": "Chitnis",
-      "Id": 30,
-      "specialization": "Neurologist",
+      "name": "Astana",
+      "Id": 20,
+      "specialization": "MBBS",
       "availability": "PM",
       "patients": 0
     },
     {
+      "name": "Rustom",
+      "Id": 30,
+      "specialization": "MBBS",
+      "availability": "AM & PM",
+      "patients": 0
+    },
+    {
+      "name": "Batra",
+      "Id": 40,
+      "specialization": "Dentist",
+      "availability": "AM",
+      "patients": 2
+    },
+    {
+      "name": "Bruce",
+      "Id": 50,
+      "specialization": "Dentist",
+      "availability": "PM",
+      "patients": 0
+    },
+    {
+      "name": "Murli",
+      "Id": 60,
+      "specialization": "Dentist",
+      "availability": "AM & PM",
+      "patients": 0
+    },
+    {
+      "name": "Chitnis",
+      "Id": 70,
+      "specialization": "Neurologist",
+      "availability": "AM",
+      "patients": 5
+    },
+    {
+      "name": "Chopra",
+      "Id": 80,
+      "specialization": "Neurologist",
+      "availability": "PM",
+      "patients": 1
+    },
+    {
+      "name": "Roy",
+      "Id": 90,
+      "specialization": "Neurologist",
+      "availability": "AM & PM",
+      "patients": 1
+    },
+    {
       "name": "Patil",
-      "Id": 20,
+      "Id": 100,
+      "specialization": "Cardiologist",
+      "availability": "AM",
+      "patients": 0
+    },
+    {
+      "name": "Aggrawal",
+      "Id": 110,
+      "specialization": "Cardiologist",
+      "availability": "PM",
+      "patients": 0
+    },
+    {
+      "name": "Verma",
+      "Id": 120,
       "specialization": "Cardiologist",
       "availability": "AM & PM",
       "patients": 0

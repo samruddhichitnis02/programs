@@ -2,27 +2,23 @@
   "Stocks": [
     {
       "Stock Name": "facebook",
-      "Number of Shares": 30,
-      "Share Price per stock": 50,
-      "Total Price": 49997105
+      "Number of Shares": 49995,
+      "Share Price per stock": 50
     },
     {
       "Stock Name": "google",
-      "Number of Shares": 50000,
-      "Share Price per stock": 100,
-      "Total Price": 4993600
+      "Number of Shares": 70020,
+      "Share Price per stock": 35
     },
     {
       "Stock Name": "tcs",
-      "Number of Shares": 60,
-      "Share Price per stock": 70,
-      "Total Price": 21791410
+      "Number of Shares": 59995,
+      "Share Price per stock": 70
     },
     {
       "Stock Name": "microsoft",
-      "Number of Shares": 50,
-      "Share Price per stock": 65,
-      "Total Price": 22848895
+      "Number of Shares": 89994,
+      "Share Price per stock": 65
     }
   ]
 }

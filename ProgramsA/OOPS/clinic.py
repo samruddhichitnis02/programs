@@ -70,7 +70,7 @@ class Clinic_Management:
                             except:
                                 print('Invalid Input Please enter numbers only!')
                         elif(choice==3):
-                            pass
+                           self.appointment()
                         elif(choice==4):
                             self.update_user()
                         elif(choice==5):
@@ -86,15 +86,20 @@ class Clinic_Management:
         try:
             with open('doctors.json','r') as f:
                 data=json.load(f)
-
                 name=input('Enter the name of the doctor-')
                 if(name.isalpha()):
                     for i in range(len(data['doctors'])):
                         if(name==data['doctors'][i]['name']):
-                            print(data['doctors'][i])
-
-                    if (name != data['doctors'][i]['name']):
-                        print('Doctor not found!')
+                            name1=data['doctors'][i]['name']
+                            Id=data['doctors'][i]['Id']
+                            specialization=data['doctors'][i]['specialization']
+                            availability=data['doctors'][i]['availability']
+                            print('name-',name1)
+                            print('Id-',Id)
+                            print('Specialization-',specialization)
+                            print('Availability-',availability)
+                        else:
+                            print('no doctor found!')
 
                 else:
                     print('Enter a valid name!')
@@ -104,11 +109,101 @@ class Clinic_Management:
             #print('Invalid Input!')
 
     def specialization(self):
-        pass
+        try:
+            with open('doctors.json','r') as f:
+                data=json.load(f)
+                print('1 to Choose a Dentist')
+                print('2 to Choose an MBBS')
+                print('3 to Choose a Neurologist')
+                print('4 to Choose a Cardiologist')
+                sp = int(input())
+                print('These are the doctors available with this specialization are-')
+                for i in range(len(data['doctors'])):
+                    if(sp==1 and data['doctors'][i]['specialization']=='Dentist'):
+                        name1 = data['doctors'][i]['name']
+                        Id = data['doctors'][i]['Id']
+                        specialization = data['doctors'][i]['specialization']
+                        availability = data['doctors'][i]['availability']
+                        print('name-', name1)
+                        print('Id-', Id)
+                        print('Specialization-', specialization)
+                        print('Availability-', availability)
+                    elif (sp == 2 and data['doctors'][i]['specialization'] == 'MBBS'):
+                        name1 = data['doctors'][i]['name']
+                        Id = data['doctors'][i]['Id']
+                        specialization = data['doctors'][i]['specialization']
+                        availability = data['doctors'][i]['availability']
+                        print('name-', name1)
+                        print('Id-', Id)
+                        print('Specialization-', specialization)
+                        print('Availability-', availability)
+                    elif (sp == 3 and data['doctors'][i]['specialization'] == 'Neurologist'):
+                        name1 = data['doctors'][i]['name']
+                        Id = data['doctors'][i]['Id']
+                        specialization = data['doctors'][i]['specialization']
+                        availability = data['doctors'][i]['availability']
+                        print('name-', name1)
+                        print('Id-', Id)
+                        print('Specialization-', specialization)
+                        print('Availability-', availability)
+                    elif (sp == 4 and data['doctors'][i]['specialization'] == 'Cardiologist'):
+                        name1 = data['doctors'][i]['name']
+                        Id = data['doctors'][i]['Id']
+                        specialization = data['doctors'][i]['specialization']
+                        availability = data['doctors'][i]['availability']
+                        print('name-', name1)
+                        print('Id-', Id)
+                        print('Specialization-', specialization)
+                        print('Availability-', availability)
+
+            f.close()
+        except:
+            raise ValueError
+            #print('Invalid Input!')
 
     def availability(self):
-        pass
+        try:
+            with open('doctors.json','r') as f:
+                data=json.load(f)
+                avail=input('Enter your availaibility-')
+                for i in range(len(data['doctors'])):
+                    if(avail==data['doctors'][i]['availability']):
+                        name=data['doctors'][i]['name']
+                        avail1=data['doctors'][i]['availability']
+                        sp=data['doctors'][i]['specialization']
+                        print('Name-',name)
+                        print('Availability-',avail1)
+                        print('Specialization-',sp)
+            f.close()
+        except:
+            raise ValueError
+            #print('Invalid Input!')
 
     def appointment(self):
-        pass
+        try:
+            with open('doctors.json','r') as f:
+                data=json.load(f)
+                choice=input("Enter the doctor's name to get the appointment-")
+                if(choice.isalpha()):
+                    for i in range(len(data['doctors'])):
+                        if(data['doctors'][i]['name']==choice):
+                            p=data['doctors'][i]['patients']
+                            if(p<5):
+                                p=p+1
+                                data['doctors'][i]['patients']=p
+                                print(data['doctors'][i])
+                                with open('doctors.json','w') as f:
+                                    json.dump(data,f,indent=2)
+                                f.close()
+                            else:
+                                print('Doctor is busy cannot take more patients!')
+                                print("Take another docto's appointment if you want-")
+                                self.appointment()
+                else:
+                    print('Enter a valid Doctor name!')
+
+            f.close()
+        except:
+            raise ValueError
+            #print('Invalid Input!')
 
